@@ -1,0 +1,19 @@
+# Input values for water in pipes only, not for other shapes or liquids
+Dh = float(input("Enter hydraulic diameter (in inches): ")) / 12   # convert to feet
+V = float(input("Enter velocity (in feet/second): "))
+nu = 1.41e-5   # kinematic viscosity in ft^2/s, change it here for other values
+
+# Calculating Reynolds number
+Re = (Dh*V)/nu
+
+# Determining flow type based on Reynolds number
+if Re > 4000:
+    flow_type = "Turbulent Flow"
+elif 2300 <= Re <= 4000:
+    flow_type = "Transitional Flow"
+else:
+    flow_type = "Laminar Flow"
+
+# Printing output
+print("The Reynolds number is:", Re)
+print("The type of flow is:", flow_type)
